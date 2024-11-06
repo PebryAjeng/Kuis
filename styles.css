@@ -65,3 +65,25 @@ ul li {
     outline: none;
     background-color: #44b927;
 }
+
+.reload-btn {
+    background-color: #03cae4;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: inherit;
+    padding: 1.3rem;
+    margin-top: 2rem;
+}
+
+.reload-btn:hover {
+    background-color: #44b927;
+}
+
+.reload-btn:focus {
+    outline: none;
+    background-color: #44b927;
+}
