@@ -38,7 +38,7 @@ ul li {
     font-size: 1.2rem;
     margin: 1rem 0;
 }
-ul li label {
+/* ul li label {
     background-color: #03cae4;
     color: #fff;
     border: none;
@@ -55,4 +55,4 @@ button:hover {
 button:focus {
     outline: none;
     background-color: #44b927;
-}
+} */
