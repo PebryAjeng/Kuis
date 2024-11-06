@@ -1,102 +1,102 @@
-const quizData = [
+const dataQuestions = [
   {
-      question: "Apa fungsi utama dari tag <a> dalam HTML?",
-      A: "Menampilkan gambar",
-      B: "Membuat daftar",
-      C: "Membuat tautan",
-      D: "Mengatur layout halaman",
-      correct: "C",
+      q: "What is the capital of France?",
+      a: "Paris",
+      b: "London",
+      c: "Berlin",
+      d: "Madrid",
+      correct: "a",
   },
   {
-      question: "CSS digunakan untuk tujuan apa dalam pengembangan web?",
-      A: "Mengatur struktur konten",
-      B: "Mengelola interaksi basis data",
-      C: "Mengatur tampilan dan gaya halaman",
-      D: "Membuat fungsi dinamis",
-      correct: "C",
+      q: "What is the largest planet in our solar system?",
+      a: "Earth",
+      b: "Mars",
+      c: "Jupiter",
+      d: "Saturn",
+      correct: "c",
   },
   {
-      question: "Di bawah ini, manakah pernyataan JavaScript yang benar untuk menampilkan pesan di layar?",
-      A: "console.log('Hello')",
-      B: "alert('Hello')",
-      C: "print('Hello')",
-      D: "echo('Hello')",
-      correct: "B",
+      q: "What is the chemical symbol for water?",
+      a: "H2O",
+      b: "O2",
+      c: "CO2",
+      d: "NaCl",
+      correct: "a",
   },
   {
-      question: "Apa arti dari 'DOM' dalam konteks pemrograman web?",
-      A: "Document Object Model",
-      B: "Data Object Model",
-      C: "Dynamic Object Management",
-      D: "Document Orientation Mode",
-      correct: "A",
+      q: "Who wrote 'To Kill a Mockingbird'?",
+      a: "Harper Lee",
+      b: "Mark Twain",
+      c: "Ernest Hemingway",
+      d: "F. Scott Fitzgerald",
+      correct: "a",
   },
   {
-      question: "Dalam CSS, apakah fungsi dari property margin?",
-      A: "Mengatur warna latar belakang",
-      B: "Mengatur ruang di luar elemen",
-      C: "Mengatur ukuran teks",
-      D: "Mengatur tampilan border",
-      correct: "B",
-  },
+      q: "What is the speed of light?",
+      a: "300,000 km/s",
+      b: "150,000 km/s",
+      c: "450,000 km/s",
+      d: "600,000 km/s",
+      correct: "a",
+  }
 ];
 
-const quiz = document.getElementById('quiz');
-const answerEls = document.querySelectorAll('.answer');
-const questionEl = document.getElementById('question');
-const a_text = document.getElementById('a_text');
-const b_text = document.getElementById('b_text');
-const c_text = document.getElementById('c_text');
-const d_text = document.getElementById('d_text');
-const submitBtn = document.getElementById('submit');
+const quiz = document.getElementById('quiz')
+const answers = document.querySelectorAll('.answer')
+const question = document.getElementById('question')
+const a = document.getElementById('a_text')
+const b = document.getElementById('b_text')
+const c = document.getElementById('c_text')
+const d = document.getElementById('d_text')
 
-let currentQuiz = 0;
-let score = 0;
+let currentQuiz = 0
+let score = 0
 
-loadQuiz();
+loadQuiz()
 
 function loadQuiz() {
-  deselectAnswers();
+  deselectAnswers()
 
-  const currentQuizData = quizData[currentQuiz];
-
-  questionEl.innerText = currentQuizData.question;
-  a_text.innerText = currentQuizData.A;
-  b_text.innerText = currentQuizData.B;
-  c_text.innerText = currentQuizData.C;
-  d_text.innerText = currentQuizData.D;
+  const currentQuestion = dataQuestions[currentQuiz]
+  question.innerText = currentQuestion.q 
+  a.innerText = currentQuestion.a
+  b.innerText = currentQuestion.b
+  c.innerText = currentQuestion.c
+  d.innerText = currentQuestion.d
 }
 
 function deselectAnswers() {
-  answerEls.forEach(answerEl => answerEl.checked = false);
+  answers.forEach(answer => answer.checked = false)
 }
 
 function getSelected() {
-  let answer;
-  answerEls.forEach(answerEl => {
-      if(answerEl.checked) {
-          answer = answerEl.id;
+  let selectedAnswer
+  answers.forEach(answer => {
+      if (answer.checked) {
+          selectedAnswer = answer.id
       }
   });
-  return answer;
+  return selectedAnswer
 }
 
+const submitBtn = document.getElementById('submit')
+
 submitBtn.addEventListener('click', () => {
-  const answer = getSelected();
-  if(answer) {
-      if(answer === quizData[currentQuiz].correct) {
-          score++;
+  const selectedAnswer = getSelected()
+  if (selectedAnswer) {
+      if (selectedAnswer === dataQuestions[currentQuiz].correct) {
+          score++
       }
 
-      currentQuiz++;
+      currentQuiz++
 
-      if(currentQuiz < quizData.length) {
-          loadQuiz();
+      if (currentQuiz < dataQuestions.length) {
+          loadQuiz()
       } else {
           quiz.innerHTML = `
-          <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+          <h2>You answered ${score}/${dataQuestions.length} questions correctly</h2>
           <button onclick="location.reload()">Reload</button>
-          `;
+          `
       }
   }
-});
+})
