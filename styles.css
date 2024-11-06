@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -15,6 +15,7 @@ body {
     overflow: hidden;
     margin: 0;
 }
+
 .quiz-container {
     background-color: #fff;
     border-radius: 10px;
@@ -22,23 +23,28 @@ body {
     width: 600px;
     overflow: hidden;
 }
+
 .quiz-header {
     padding: 4rem;
 }
+
 h2 {
     padding: 1rem;
     text-align: center;
     margin: 0;
 }
+
 ul {
     list-style: none;
     padding: 0;
 }
+
 ul li {
     font-size: 1.2rem;
     margin: 1rem 0;
 }
-/* ul li label {
+
+#submit, .reload-btn {
     background-color: #03cae4;
     color: #fff;
     border: none;
@@ -48,11 +54,14 @@ ul li {
     font-size: 1.1rem;
     font-family: inherit;
     padding: 1.3rem;
+    margin-top: 2rem;
 }
-button:hover {
-    background-color: #03cae4;
+
+#submit:hover, .reload-btn:hover {
+    background-color: #44b927;
 }
-button:focus {
+
+#submit:focus, .reload-btn:focus {
     outline: none;
     background-color: #44b927;
-} */
+}
